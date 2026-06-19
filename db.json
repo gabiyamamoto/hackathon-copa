@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "grupo": "C",
+    "selecao": "Brasil",
+    "bandeira": "https://flagcdn.com/w320/br.png"
+  },
+  {
+    "id": "2",
+    "grupo": "C",
+    "selecao": "Marrocos",
+    "bandeira": "https://flagcdn.com/w320/ma.png"
+  },
+  {
+    "id": "3",
+    "grupo": "C",
+    "selecao": "Escócia",
+    "bandeira": "https://flagcdn.com/w320/gb-sct.png"
+  },
+  {
+    "id": "4",
+    "grupo": "C",
+    "selecao": "Haiti",
+    "bandeira": "https://flagcdn.com/w320/ht.png"
+  },
+  {
+    "id": "5",
+    "grupo": "A",
+    "selecao": "México",
+    "bandeira": "https://flagcdn.com/w320/mx.png"
+  },
+  {
+    "id": "6",
+    "grupo": "A",
+    "selecao": "Coreia do Sul",
+    "bandeira": "https://flagcdn.com/w320/kr.png"
+  },
+  {
+    "id": "7",
+    "grupo": "A",
+    "selecao": "África do Sul",
+    "bandeira": "https://flagcdn.com/w320/za.png"
+  },
+  {
+    "id": "8",
+    "grupo": "A",
+    "selecao": "Tchéquia",
+    "bandeira": "https://flagcdn.com/w320/cz.png"
+  }
+]
