@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Text, View } from 'react-native';
+import { Text, FlatList } from 'react-native';
 
 export default function App() {
   const [ selecoes, setSelecoes ] = useState([]);
@@ -25,10 +25,15 @@ export default function App() {
 
     carregarDados();
   }, []);
+  console.log(selecoes)
 
   return (
-    <View>
-      <Text>DashBoard da Copa</Text>
-    </View>
+    <FlatList
+      data={selecoes}
+      keyExtractor={(item) => item.id}
+      renderItem={({item}) => (
+        <Text style={{color: 'white', fontSize: 20}}>{item.selecao}</Text>
+      )}
+    />
   );
 }
