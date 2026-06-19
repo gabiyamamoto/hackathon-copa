@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Text, FlatList, View, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
+import { Text, FlatList, View, StyleSheet, SafeAreaView, StatusBar, Image } from 'react-native';
 
 export default function App() {
   const [selecoes, setSelecoes] = useState([]);
@@ -58,6 +58,13 @@ export default function App() {
         contentContainerStyle={styles.lista}
         renderItem={({ item }) => (
           <View style={styles.card}>
+            <View style={styles.imageContainer}>
+              <Image 
+                source={{uri: item.bandeira}}
+                style={styles.bandeira}
+                resizeMode='contain'
+              />
+            </View>
 
             <View style={[styles.grupoContainer, { backgroundColor: getCorGrupo(item.grupo) }]}>
               <Text style={styles.grupo}>Grupo: {item.grupo}</Text>
@@ -131,6 +138,22 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.12,
     shadowRadius: 3.84,
     elevation: 5,
+    overflow: 'hidden' 
+  },
+
+  imageContainer: {
+    backgroundColor: '#F8F9FA',
+    padding: 12,
+    margin: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
+  },
+
+  bandeira: {
+    width: 80,
+    height: 90,
+    borderRadius: 8,
   },
 
   grupoContainer: {
