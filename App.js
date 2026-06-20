@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Text, FlatList, View, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
+import { Text, FlatList, View, StyleSheet, SafeAreaView, StatusBar, Image } from 'react-native';
 
 export default function App() {
   const [selecoes, setSelecoes] = useState([]);
@@ -55,15 +55,24 @@ export default function App() {
       <FlatList
         data={selecoes}
         keyExtractor={(item) => item.id}
+        numColumns={2}
+        columnWrapperStyle={styles.colunaWrapper}
         contentContainerStyle={styles.lista}
         renderItem={({ item }) => (
           <View style={styles.card}>
-
-            <View style={[styles.grupoContainer, { backgroundColor: getCorGrupo(item.grupo) }]}>
-              <Text style={styles.grupo}>Grupo: {item.grupo}</Text>
+            <View style={styles.imageContainer}>
+              <Image
+                source={{ uri: item.bandeira }}
+                style={styles.bandeira}
+                resizeMode='contain'
+              />
             </View>
+            <View style={styles.infoContainer}>
+              <View style={[styles.grupoContainer, { backgroundColor: getCorGrupo(item.grupo) }]}>
+              
+              <Text style={styles.grupo}>Grupo: {item.grupo}</Text>
+              </View>
 
-            <View style={styles.selecaoContainer}>
               <Text style={styles.selecao}>{item.selecao}</Text>
             </View>
           </View>
@@ -116,13 +125,12 @@ const styles = StyleSheet.create({
   },
 
   card: {
+    flex: 1,
     backgroundColor: '#ffff',
-    padding: 16,
     borderRadius: 16,
     marginBottom: 14,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    marginHorizontal: 6,
+    maxWidth: '48%',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -131,31 +139,49 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.12,
     shadowRadius: 3.84,
     elevation: 5,
+    overflow: 'hidden'
+  },
+
+  imageContainer: {
+    backgroundColor: '#F8F9FA',
+    padding: 10,    
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 110,
+  },
+
+  bandeira: {
+    width: '100%',
+    height: '100%',
+    borderRadius: 8,
   },
 
   grupoContainer: {
-    paddingHorizontal: 14,
-    paddingVertical: 6,
-    borderRadius: 14,
-    minWidth: 80,
-    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 12,
+    alignSelf: 'center',
+    marginBottom: 6,
   },
 
   grupo: {
     color: '#fff',
-    fontSize: 13,
+    fontSize: 11,
     fontWeight: 'bold',
     textTransform: 'uppercase',
     letterSpacing: 0.8,
   },
 
-  selecaoContainer: {
-    flex: 1,
-    marginLeft: 14,
+  colunaWrapper: {
+    justifyContent: 'space-between',
+  },
+
+  infoContainer: {
+    padding: 12,
   },
 
   selecao: {
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: '600',
     color: '#2C3E50',
   },
