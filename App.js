@@ -139,7 +139,22 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.12,
     shadowRadius: 3.84,
     elevation: 5,
-    overflow: 'hidden'
+    overflow: 'hidden' 
+  },
+
+  imageContainer: {
+    backgroundColor: '#F8F9FA',
+    padding: 12,
+    margin: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 100,
+  },
+
+  bandeira: {
+    width: 80,
+    height: 90,
+    borderRadius: 8,
   },
 
   imageContainer: {
